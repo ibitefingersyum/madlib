@@ -1,0 +1,60 @@
+import re
+import textwrap
+
+STORIES = [
+    "The {adjective} {noun} decided to {verb}."
+]
+
+def pick_story():
+    print("pick a story")
+
+    for i in range(len(STORIES)):
+        print(f"{i + 1}. story {i + 1}")
+
+    while True:
+        thing = input("number pls: ")
+
+        if thing.isdigit():
+            num = int(thing)
+            if 1 <= num <= len(STORIES):
+                return STORIES[num - 1]
+
+        print("no. try again.")
+
+
+def find_words(story):
+    return re.findall(r"{(\w+)}", story)
+
+def ask_for_words(words):
+    answers = {}
+    for w in words:
+        answers[w] = input("gimme a " + w + ": ")
+    return answers
+
+def wordsintostory(story, answers):
+    try:
+        return story.format(**answers)
+    except:
+        return "no."
+
+def pretty_print(story):
+    print("\n" + "=" * 40)
+    print(textwrap.fill(story, 50))
+    print("=" * 40 + "\n")
+
+def main():
+    story = pick_story()
+
+    words = find_words(story)
+
+    if not words:
+        words = ["noun", "verb", "adjective"]
+
+    answers = ask_for_words(words)
+    final_story = wordsintostory(story, answers)
+
+    pretty_print(final_story)
+
+
+if __name__ == "__main__":
+    main()
