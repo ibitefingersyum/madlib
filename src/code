@@ -2,40 +2,59 @@ import re
 import textwrap
 
 STORIES = [
-    "The {adjective} {noun} decided to {verb}."
+    " {temp1} {temp2} {temp3} ",  # 1
+    " {temp1} {temp2} {temp3} ",  # 2
+    " {temp1} {temp2} {temp3} ",  # 3
+    " {temp1} {temp2} {temp3} ",  # 4
+    " {temp1} {temp2} {temp3} ", # 5
+    " {temp1} {temp2} {temp3} ", # 6
+    " {temp1} {temp2} {temp3} ", # 7
+    " {temp1} {temp2} {temp3} ", # 8
+    " {temp1} {temp2} {temp3} ", # 9
+    " {temp1} {temp2} {temp3} ", # 10
+    " {temp1} {temp2} {temp3} ", #11
+    " {temp1} {temp2} {temp3} ", #12
+    " {temp1} {temp2} {temp3} ", #13
+    " {temp1} {temp2} {temp3} ", #14
+    " {temp1} {temp2} {temp3} ", #15
 ]
 
+HINTS = {
+    "adjective": "trait",
+    "noun": "thing",
+    "verb": "action"
+}
+
 def pick_story():
-    print("pick a story")
+    print("pick a story\n")
 
     for i in range(len(STORIES)):
         print(f"{i + 1}. story {i + 1}")
 
     while True:
-        thing = input("number pls: ")
-
-        if thing.isdigit():
-            num = int(thing)
-            if 1 <= num <= len(STORIES):
-                return STORIES[num - 1]
-
+        choice = input("\nnumber pls: ")
+        if choice.isdigit():
+            choice = int(choice)
+            if 1 <= choice <= len(STORIES):
+                return STORIES[choice - 1]
         print("no. try again.")
-
 
 def find_words(story):
     return re.findall(r"{(\w+)}", story)
 
-def ask_for_words(words):
+def askforwords(words):
     answers = {}
     for w in words:
-        answers[w] = input("gimme a " + w + ": ")
+        hint = HINTS.get(w, "")
+        if hint:
+            prompt = f"gimme a {w} ({hint}): "
+        else:
+            prompt = f"gimme a {w}: "
+        answers[w] = input(prompt)
     return answers
 
 def wordsintostory(story, answers):
-    try:
-        return story.format(**answers)
-    except:
-        return "no."
+    return story.format(**answers)
 
 def pretty_print(story):
     print("\n" + "=" * 40)
@@ -44,17 +63,10 @@ def pretty_print(story):
 
 def main():
     story = pick_story()
-
     words = find_words(story)
-
-    if not words:
-        words = ["noun", "verb", "adjective"]
-
-    answers = ask_for_words(words)
+    answers = askforwords(words)
     final_story = wordsintostory(story, answers)
-
     pretty_print(final_story)
-
 
 if __name__ == "__main__":
     main()
