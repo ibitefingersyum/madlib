@@ -1,16 +1,70 @@
 import re
 import textwrap
 
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+# DO NOT LOOK AT STORIES BEFOREHAND.
+
+
+
 STORIES = [
-    " The {adjective} {noun} {verb} the {noun2}",  # 1
-    " {temp1} {temp2} {temp3} ",  # 2
-    " {temp1} {temp2} {temp3} ",  # 3
-    " {temp1} {temp2} {temp3} ",  # 4
-    " {temp1} {temp2} {temp3} ", # 5
-    " {temp1} {temp2} {temp3} ", # 6
-    " {temp1} {temp2} {temp3} ", # 7
-    " {temp1} {temp2} {temp3} ", # 8
-    " {temp1} {temp2} {temp3} ", # 9
+    "The very {adjective} {noun} {actionverb} (ed) {noun2}",  # 1
+    "The {Person} commited {Crime} against {Person2} ",  # 2
+    " Your New Username: {Enter_xxx_Optional} {Color_or_trait} {Animal_or_Fruit} {Random_4_Digit_Number} {Enter_xxx_Optional} ", # 3
+    " You picked: {Rock_Paper_Scissors}. I picked: Paper. | Play again? (Go to 5) ",  # 4
+    " You picked: {Rock_Paper_Scissors}. I picked: Paper. | Play again? (Go to 6) ",  # 5
+    " You picked: {Rock_Paper_Scissors}. I picked: Paper. | Good Game! (ez)", # 6
+    " {Major_Event_In_History} never happened. ", # 7
+    " I really hate {The_Person_or_Thing_You_Love_Most}.", # 8
     " {temp1} {temp2} {temp3} ", # 10
     " {temp1} {temp2} {temp3} ", #11
     " {temp1} {temp2} {temp3} ", #12
@@ -18,15 +72,6 @@ STORIES = [
     " {temp1} {temp2} {temp3} ", #14
     " {temp1} {temp2} {temp3} ", #15
 ]
-
-HINTS = {
-    "adjective": "trait",
-    "adjective2": "trait",
-    "noun": "thing",
-    "noun2": "thing",
-    "verb": "action",
-    "verb2": "action",
-}
 
 def pick_story():
     print("pick a story\n")
@@ -48,11 +93,7 @@ def find_words(story):
 def askforwords(words):
     answers = {}
     for w in words:
-        hint = HINTS.get(w, "")
-        if hint:
-            prompt = f"gimme a {w} ({hint}): "
-        else:
-            prompt = f"gimme a {w}: "
+        prompt = f"gimme a(n) {w}: "
         answers[w] = input(prompt)
     return answers
 
@@ -60,9 +101,7 @@ def wordsintostory(story, answers):
     return story.format(**answers)
 
 def pretty_print(story):
-    print("\n" + "=" * 40)
     print(textwrap.fill(story, 50))
-    print("=" * 40 + "\n")
 
 def main():
     story = pick_story()
