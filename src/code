@@ -81,7 +81,7 @@ import textwrap
 
 
 STORIES = [
-    "The very {adjective} {noun} {actionverb} (ed) {noun2}",  # 1
+    "The very {adjective} {noun} {actionverb} (ed) infront of {noun2}",  # 1
     "{Person} commited {crime} which involved {Person2} ",  # 2
     " Your New Username: {Enter_xxx_Optional} {Color_or_trait} {Animal_or_Fruit} {Random_4_Digit_Number} {Enter_xxx_Optional} ", # 3
     " You picked: {Rock_Paper_Scissors}. I picked: Paper. | Play again? (Go to 5) ",  # 4
