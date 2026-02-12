@@ -80,7 +80,6 @@ import textwrap
 
 
 
-
 STORIES = [
     "The very {adjective} {noun} {actionverb} (ed) {noun2}",  # 1
     "{Person} commited {crime} which involved {Person2} ",  # 2
@@ -90,7 +89,7 @@ STORIES = [
     " You picked: {Rock_Paper_Scissors}. I picked: Paper. | Good Game! (ez)", # 6
     " {Major_Event_In_History} never happened. ", # 7
     " I hate {The_Person_or_Thing_You_Love_Most}.", # 8
-    " {temp1} {temp2} {temp3} ", # 10
+    " {Person} went {Sound} whilst {Action}(ing) ", # 10
     " {temp1} {temp2} {temp3} ", #11
     " {temp1} {temp2} {temp3} ", #12
     " {temp1} {temp2} {temp3} ", #13
@@ -137,3 +136,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
